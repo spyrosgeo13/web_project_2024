@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="Images/Logo.PNG">
+        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="css/sweetalert2.min.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <form>
+                <div class="Sign_in">
+                    
+                        <label aria-hidden="true" class="Login_label">Login</label>
+
+                        <input type="text" placeholder="Enter Username..." class="login_username" maxlength="128" required>
+                        <div class="not_found"></div>
+
+                        <input type="password" placeholder="Enter Password..." class="login_password" maxlength="1024" required>
+
+                        <button type="button" class="login_button">Login</button>
+                    
+                </div>
+                <div class="Not_a_user">
+                    <p>Don't have an account? &nbsp;&nbsp;<a href="Register.html">Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+    </body>
+    <script type="text/javascript" src="js/login_to_app.js"></script>
+    <script type="text/javascript" src="js/sweetalert2.min.js"></script>
+</html>

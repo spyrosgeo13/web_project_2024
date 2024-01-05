@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Jost', sans-serif;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+}
+
+.container{
+    width: 50vh;
+    height: 60vh;
+    background:#0f0c29;
+    overflow:hidden;
+    box-shadow: 5px 20px 50px#000;
+}
+
+.Login_label {
+    color: white;
+    font-size: 2.3em;
+    justify-content: center;
+    display: flex;
+    margin: 50px;
+    font-weight: bold;
+    transition: .5s ease-in-out;
+}
+
+.login_username, .login_password {
+    width: 60%;
+    height: 5%;
+    background: #e0dede;
+    justify-content: center;
+    display: flex;
+    margin: 30px auto;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.login_button {
+    width: 30%;
+    height: 30px;
+    display: flex;
+    margin:40px auto; /* the auto horizontally centers it within its parent container*/
+    justify-content: center;
+    color: white;
+    background: #573b8a;
+    font-size: 1em;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    transition: .2s ease-in;
+}
+
+.login_button:hover {
+    background: #6d44b8;
+}
+
+.Not_a_user p {
+    color: white;
+    margin: 20px auto;
+    justify-content: center;
+    display: flex;
+}
+
+.Not_a_user a {
+    color: #573b8a;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+.Not_a_user a:hover {
+    color: #9575d2;
+    font-weight: bold;
+}
+
+.not_found_msg {
+    color: red;
+    font-size: 0.9em;
+    display: flex;
+    /* justify-content: center; */
+    margin: auto;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="Images/Logo.PNG">
+        <link rel="stylesheet" href="css/Register.css">
+        <link rel="stylesheet" href="css/sweetalert2.min.css">
+        
+    </head>
+    <body>
+        <div class="container">
+            <form>
+                <label class="Sign_up_label">Sign up</label>
+                
+                <hr>
+
+                <input type="text" placeholder="Enter Username..." class="register_username" maxlength="50" autocomplete="name" required>
+                <div class="alert_name"></div>
+
+                <input type="email" placeholder="Enter Email..." class="register_email" maxlength="64" autocomplete="email" required>
+                <div class="alert_email"></div>
+
+                <input type="password" placeholder="Enter Password..." class="register_password" maxlength="1024" autocomplete="off" required>
+                <div class="alert_pswd"></div>
+
+                <input type="password" placeholder="Repeat Password..." class="register_password_repeat" maxlength="1024" autocomplete="off" required>
+                <div class="alert_pswd_repeat"></div>
+
+                 <!-- Add a class for the phone number input -->
+    <input type="tel" placeholder="Enter Phone Number..." class="register_phone" autocomplete="tel" required>
+    <div class="alert_phone"></div>
+
+    <!-- Add a class for the full name input -->
+    <input type="text" placeholder="Enter Full Name..." class="register_fullname" maxlength="100" autocomplete="name" required>
+    <div class="alert_fullname"></div>
+                 
+
+                <hr>
+                <p>By creating an account you agree to our <a href="Term.html">Terms & Privacy</a>.</p>
+
+                <button type="button" class="register_btn">Register</button>
+
+                <p>Already have an account? <a href="login.html">Sign in</a>.</p>
+                
+            </form>
+        </div>
+    </body>
+    <script type="text/javascript" src="js/Register_to_app.js"></script>
+    <script type="text/javascript" src="js/sweetalert2.min.js"></script>
+    
+    
+   
+</html>
