@@ -1,0 +1,11 @@
+#map {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    padding: 10px;
+}
+
+.swal2-title, .swal2-html-container {
+    font-family: "Arial", sans-serif;
+}

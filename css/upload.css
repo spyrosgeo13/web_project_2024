@@ -1,0 +1,37 @@
+.options-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.options {
+    display: flex;
+    justify-content: space-around;
+}
+
+.options button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.update-url-btn {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.upload-json-btn {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+.options button:hover {
+    opacity: 0.8;
+}

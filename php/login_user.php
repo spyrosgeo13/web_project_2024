@@ -1,8 +1,9 @@
 <?php
 
 include 'connect_to_db.php';
+session_start(); // Start the session at the beginning of the script
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $jsonData = file_get_contents('php://input');
     $data = json_decode($jsonData, true);
 
@@ -10,38 +11,34 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $data['username'];
     $password = $data['password'];
 
-    $query = $db->query("SELECT * FROM users WHERE username = '$username'");
+    // Perform the query
+    $query = "SELECT id, password, user_role FROM users WHERE username = '$username'";
+    $result = $db->query($query);
 
-    if(mysqli_num_rows($query) === 1) {
-        $row = mysqli_fetch_assoc($query);
+    if ($result) {
+        if ($result->num_rows === 1) {
+            $row = $result->fetch_assoc();
 
-        if(password_verify($password, $row['password'])) {
-            
-
-            $user_id = $row['id'];
-            $role_id = $db->query("SELECT id_role FROM user_roles WHERE id_user='$user_id'");
-            $row = mysqli_fetch_assoc($role_id);
-
-            if($row['id_role'] == 0) {
-                echo 0; //user login
-                $_SESSION['user_id_logged_in']= $user_id;
+            if (password_verify($password, $row['password'])) {
+                // Set session variables
+                $_SESSION['user_id_logged_in'] = $row['id'];
                 $_SESSION['status'] = true;
-                session_start();
+
+                if ($row['user_role'] == 0) {
+                    echo 0; // admin login
+                } else if ($row['user_role'] == 1){
+                    echo 1; // user login
+                }else if ($row['user_role'] == 2){
+                    echo 2; // user login
             } else {
-                echo 1; //admin login
-                session_start();
-                $_SESSION['user_id_logged_in']= $user_id;
-                $_SESSION['status'] = true;
+                echo 3; // Wrong password
             }
         } else {
-            echo 2; //wrong pass
-            $_SESSION['status'] = false;
+            echo 4; // Wrong username
         }
     } else {
-        echo 3; // wrong username
-        $_SESSION['status'] = false;
+        echo 4; // Query error
     }
-
-}
+}}
 
 ?>

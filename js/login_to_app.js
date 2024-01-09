@@ -39,27 +39,27 @@ document.addEventListener('DOMContentLoaded', function(){
                         Swal.fire({
                             icon: "success",
                             title: "Successful Login",
-                            text: "Welcome to CollectiSearch! You are redirected to our Welcome Page.",
+                            text: "Successful Admin Login",
                             showConfirmButton: false,
                             timer: 2500
                           })
                           .then(function(){
-                            window.location.assign("Welcome_page.html");
+                            window.location.assign("Welcome_page_Admin.html");
                         });
                     } else if (xhttp.responseText == 1) {
                         Swal.fire({
                             icon: "success",
-                            title: "Successful Admin Login",
+                            title: "Welcome to the App Simple User",
                             text: "You are logged in",
                             showConfirmButton:false,
                             timer: 2500
                           })
                           .then(function(){
-                            window.location.assign("Welcome_page_admin.html");
+                            window.location.assign("user_main_page.html");
                         });
                     } else if (xhttp.responseText == 2) {
                         Swal.fire({
-                            icon: 'error',
+                            icon: 'Success',
                             title: 'Oops...',
                             text: 'Something went wrong!',
                             footer: '<a href="">Forgot Password?</a>'
