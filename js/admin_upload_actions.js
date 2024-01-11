@@ -20,12 +20,57 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function for Upload JSON File button
     document.getElementById('uploadjsonbtn').addEventListener('click', function () {
-        // Implement your logic for uploading JSON file and updating products
-        // For example:
-        // 1. Allow the user to select a local JSON file
-        // 2. Read the contents of the file
-        // 3. Parse JSON data and update your database
-        // 4. Update UI or display a success message
-        console.log('Upload JSON File button clicked');
+        // Create an input element to trigger file selection
+        var fileInput = document.createElement('input');
+        fileInput.type = 'file';
+    
+        // Set accept attribute to allow only JSON files
+        fileInput.accept = '.json';
+    
+        // Trigger click event on the input element
+        fileInput.click();
+    
+        // Event listener for when a file is selected
+        fileInput.addEventListener('change', function () {
+            var file = fileInput.files[0];
+    
+            if (file) {
+                var reader = new FileReader();
+    
+                reader.onload = function (e) {
+                    try {
+                        var jsonData = JSON.parse(e.target.result);
+                        uploadToServer(jsonData);
+                    } catch (error) {
+                        console.error('Error parsing JSON:', error);
+                        alert('Error parsing JSON. Please check the file format.');
+                    }
+                };
+    
+                reader.readAsText(file);
+            } else {
+                alert('Please choose a JSON file to upload.');
+            }
+        });
     });
+    
+    function uploadToServer(jsonData) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'php/upload_by_file.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+    
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    alert(xhr.responseText);
+                } else {
+                    alert('Error uploading JSON data.');
+                }
+            }
+        };
+    
+        var jsonDataString = JSON.stringify(jsonData);
+        xhr.send(jsonDataString);
+        console.log(jsonData)
+    }
 });
