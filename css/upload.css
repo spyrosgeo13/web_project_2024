@@ -36,3 +36,27 @@
 .options button:hover {
     opacity: 0.8;
 }
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+ul {
+    list-style: none;
+    padding: 15;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+select {
+    margin-top: 8px;
+}

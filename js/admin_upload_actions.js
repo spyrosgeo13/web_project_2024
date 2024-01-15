@@ -1,13 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Function for Delete Products button
-    document.getElementById('deletebtn').addEventListener('click', function () {
-        // Implement your logic for deleting products
-        // For example:
-        // 1. Make an AJAX request to your server to delete products
-        // 2. Update UI or display a success message
-        console.log('Delete Products button clicked');
-    });
-
+    
     // Function for Update Products (URL) button
     document.getElementById('updateurlbtn').addEventListener('click', function () {
         // Implement your logic for updating products using a URL

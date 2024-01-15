@@ -1,76 +1,100 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Main Page</title>
-         
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/navigation_menu.css">
-        <link rel="stylesheet" href="css/footer_menu.css">
-        <link rel="stylesheet" href="css/main_style.css">
-        <link rel="stylesheet" href="css/Welcome_page.css">
-        <link rel="stylesheet" href="css/Map.css">
-        <link rel="stylesheet" href="css/leaflet.css">
-        <link rel="stylesheet" href="css/leaflet-search.min.css">
-        <link rel="stylesheet" href="https://unpkg.com/leaflet-search@2.9.6/dist/leaflet-search.min.css" />
-        <link rel="stylesheet" href="css/sweetalert2.min.css">
-        <link rel="stylesheet" href="css/upload.css">
-    </head>
-    <body>
-        <div class="header">
-            <div class="navigation_menu">
-                <ul class="menu">
+  <head>
+    <title>Main Page</title>
 
-                    <li class="menu_item ">
-                        <a href="admin_main_page.html">Map</a>
-                    </li>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/navigation_menu.css" />
+    <link rel="stylesheet" href="css/footer_menu.css" />
+    <link rel="stylesheet" href="css/main_style.css" />
+    <link rel="stylesheet" href="css/Welcome_page.css" />
+    <link rel="stylesheet" href="css/Map.css" />
+    <link rel="stylesheet" href="css/leaflet.css" />
+    <link rel="stylesheet" href="css/leaflet-search.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-search@2.9.6/dist/leaflet-search.min.css"
+    />
+    <link rel="stylesheet" href="css/sweetalert2.min.css" />
+    <link rel="stylesheet" href="css/upload.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="navigation_menu">
+        <ul class="menu">
+          <li class="menu_item">
+            <a href="admin_main_page.html">Map</a>
+          </li>
+
+          <li class="menu_item avtive">
+            <a href="admin_update_products.html"
+              >Update products and categories</a
+            >
+          </li>
+
+          <li class="menu_item">
+            <a href="Statistics.html">Statistics</a>
+          </li>
+
+          <li class="menu_item">
+            <a href="resquers.html">Creation of resquers account</a>
+          </li>
+
+          <li class="menu_item">
+            <a href="announcement.html">Announcements</a>
+          </li>
+
+          <!--Logout option in navbar menu-->
+          <li class="menu_item">
+            <a class="logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="options-container">
+      <div class="options">
+        <button id="deletebtn" class="delete-btn">Delete Products</button>
+        <button id="updateurlbtn" class="update-url-btn">
+          Update Products (URL)
+        </button>
+        <button id="uploadjsonbtn" class="upload-json-btn">
+          Upload JSON File
+        </button>
+      </div>
+    </div>
+    <div class="container">
+      <h1>item Management</h1>
+
+      <h2>Select a Category:</h2>
+      <div>
+        <label for="category-select">Categories:</label>
+        <select id="category-select" onclick="getCategories()">
+          <option value="">Select a category</option>
+          <!-- Categories will be dynamically added here -->
+        </select>
+      </div>
+    </div>
+    <button onclick="createCategory()">Create New Category</button>
+    <button onclick="deleteCategory()">Delete Selected Category</button>
     
-                    <li class="menu_item avtive">
-                        <a href="admin_update_products.html">Update products and categories</a>
-                    </li>
+    <button onclick="showItems()">Show items of the selected category</button>
+    <ul id="products-list"></ul>
+    <div id="item-details"></div>
+    <button onclick="updateItem()">Update Item</button>
+<button onclick="deleteItem()">Delete Item</button>
+<button onclick="createItem()">Create Item</button>
 
-                    <li class="menu_item">
-                        <a href="Statistics.html">Statistics</a>
-                    </li>
+  </body>
 
-                    <li class="menu_item">
-                        <a href="resquers.html">Creation of resquers account</a>
-                    </li>
-
-                    <li class="menu_item">
-                        <a href="announcement.html">Announcements</a>
-                    </li>
-    
-                    <!--Logout option in navbar menu-->
-                    <li class="menu_item">
-                        <a class="logout">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-         <div class="options-container">
-                <div class="options">
-                    <button id="deletebtn" class="delete-btn">Delete Products</button>
-                    <button id="updateurlbtn" class="update-url-btn">Update Products (URL)</button>
-                    <button id="uploadjsonbtn" class="upload-json-btn">Upload JSON File</button>
-                </div>
-        </div>
-            
-
-
-        
-            
-
-            
-         
-
-        
-    </body>
-    
-    
-    <script type="text/javascript" src="js/sweetalert2.min.js"></script>
-    <script type="text/javascript" src="js/logout.js"></script>
-    <script type="text/javascript" src="js/leaflet.js"></script>
-    <script type="text/javascript" src="js/leaflet-search.min.js"></script>
-    <script type="text/javascript" src="js/admin_upload_actions.js"></script>
+  <script type="text/javascript" src="js/sweetalert2.min.js"></script>
+  <script type="text/javascript" src="js/logout.js"></script>
+  <script type="text/javascript" src="js/leaflet.js"></script>
+  <script type="text/javascript" src="js/leaflet-search.min.js"></script>
+  <script type="text/javascript" src="js/admin_upload_actions.js"></script>
+  <script type="text/javascript" src="js/admin_delete_massively.js"></script>
+  <script
+    type="text/javascript"
+    src="js/admin_management_of_products_categories.js"
+  ></script>
 </html>

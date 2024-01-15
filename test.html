@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        select {
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product Management</h1>
+
+        <div>
+            <h2>Categories</h2>
+            <ul id="categories-list"></ul>
+        </div>
+
+        <div>
+            <h2>Products</h2>
+            <label for="category-select">Select a category:</label>
+            <select id="category-select" onchange="getProducts()">
+                <option value="">Select a category</option>
+            </select>
+            <ul id="products-list"></ul>
+        </div>
+    </div>
+
+    <script>
+        // Function to fetch categories
+        async function getCategories() {
+            const response = await fetch('http://localhost/api.php?action=categories');
+            const categories = await response.json();
+            const categoriesList = document.getElementById('categories-list');
+            
+            categoriesList.innerHTML = ''; // Clear previous list
+
+            categories.forEach(category => {
+                const listItem = document.createElement('li');
+                listItem.textContent = category.name;
+                categoriesList.appendChild(listItem);
+            });
+
+            // Populate category dropdown for products
+            const categorySelect = document.getElementById('category-select');
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category.id;
+                option.textContent = category.name;
+                categorySelect.appendChild(option);
+            });
+        }
+
+        // Function to fetch products based on selected category
+        async function getProducts() {
+            const categoryId = document.getElementById('category-select').value;
+
+            if (!categoryId) {
+                return; // No category selected
+            }
+
+            const response = await fetch(`http://localhost/api.php?action=products&category_id=${categoryId}`);
+            const products = await response.json();
+            const productsList = document.getElementById('products-list');
+            
+            productsList.innerHTML = ''; // Clear previous list
+
+            products.forEach(product => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${product.name} - Stock: ${product.stock}, Details: ${product.details}`;
+                productsList.appendChild(listItem);
+            });
+        }
+
+        // Fetch categories on page load
+        document.addEventListener('DOMContentLoaded', getCategories);
+    </script>
+</body>
+</html>
+
