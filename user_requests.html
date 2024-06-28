@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/navigation_menu.css">
+    <link rel="stylesheet" href="css/footer_menu.css">
+    <link rel="stylesheet" href="css/main_style.css">
+    <link rel="stylesheet" href="css/Welcome_page.css">
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
+    <link rel="stylesheet" href="css/user_requests_form.css"> <!-- Link the CSS file for form styling -->
+    <script src="js/awesomplete.js"></script>
+</head>
+<body>
+<div class="header">
+    <div class="navigation_menu">
+        <ul class="menu">
+            <li class="menu_item">
+                <a href="user_main_page.html">Main page</a>
+            </li>
+            <li class="menu_item">
+                <a href="user_requests_and_announcements_visualize.html">Map</a>
+            </li>
+            <li class="menu_item active">
+                <a href="user_requests.html">Submit a request</a>
+            </li>
+            <!-- Logout option in navbar menu -->
+            <li class="menu_item">
+                <a class="logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="form-container">
+    <h2>Submit a Request</h2>
+    <form id="requestForm" action="php/submit_request.php" method="post">
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+            <option value="" disabled selected>Select a category</option>
+            <!-- Options will be populated dynamically via JavaScript -->
+        </select>
+
+        <label for="item">Item:</label>
+        <input type="text" id="item" name="item" placeholder="Start typing to search for an item" >
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+
+        <button type="submit">Submit Request</button>
+    </form>
+</div>
+
+<script src="js/user_requests.js"></script> 
+
+</body>
+</html>

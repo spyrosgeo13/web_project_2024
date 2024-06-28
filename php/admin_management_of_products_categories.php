@@ -1,9 +1,12 @@
 <?php
 include 'connect_to_db.php';
+session_start();
 
 // Handle CORS
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
+
+
 
 // Get categories
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['action'] === 'categories') {
@@ -51,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['ac
     $result = $db->query($sql);
 
     if ($result) {
-        echo json_encode(['message' => 'Category created successfully']);//edo mallon thelei kai id na gini isert.
+        echo json_encode(['message' => 'Category created successfully']);
     } else {
         echo json_encode(['error' => $db->error]);
     }
@@ -64,14 +67,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE' && isset($_GET['action']) && $_GET['
     $categoryId = $_GET['category_id'];
 
     // Delete items in the category
-    $sqlDeleteitems = "DELETE FROM items WHERE category_id = $categoryId";
-    $resultDeleteitems = $db->query($sqlDeleteitems);
+    $sqlDeleteItems = "DELETE FROM items WHERE category_id = $categoryId";
+    $resultDeleteItems = $db->query($sqlDeleteItems);
 
     // Delete the category
     $sqlDeleteCategory = "DELETE FROM categories WHERE id = $categoryId";
     $resultDeleteCategory = $db->query($sqlDeleteCategory);
 
-    if ($resultDeleteitems && $resultDeleteCategory) {
+    if ($resultDeleteItems && $resultDeleteCategory) {
         echo json_encode(['message' => 'Category and its items deleted successfully']);
     } else {
         echo json_encode(['error' => $db->error]);
@@ -79,7 +82,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE' && isset($_GET['action']) && $_GET['
 
     exit;
 }
-
 
 // Get item details by item_id
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['action'] === 'item_details' && isset($_GET['item_id'])) {
@@ -105,8 +107,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['ac
     $categoryId = $requestData->category_id;
 
     // Get the highest existing ID in the items table using db
-    
-
     if ($db->connect_error) {
         die("Connection failed: " . $db->connect_error);
     }
@@ -153,7 +153,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['ac
     echo json_encode(['message' => 'Item updated successfully']);
     exit;
 }
-
 
 // Default response for unsupported actions
 http_response_code(404);

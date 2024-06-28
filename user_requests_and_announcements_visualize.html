@@ -5,22 +5,21 @@
          
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/navigation_menu.css">
-        <link rel="stylesheet" href="css/footer_menu.css">
-        <link rel="stylesheet" href="css/main_style.css">
-        <link rel="stylesheet" href="css/Welcome_page.css">
-        <link rel="stylesheet" href="css/sweetalert2.min.css">
+        
+        <link rel="stylesheet" href="css/announcements_requests.css">
+        
     </head>
     <body>
         <div class="header">
             <div class="navigation_menu">
                 <ul class="menu">
 
-                    <li class="menu_item active">
+                    <li class="menu_item">
                         <a href="user_main_page.html">Main page</a>
                     </li>
     
-                    <li class="menu_item">
-                        <a href="user_requests_and_announcements_visualize.html">Map</a>
+                    <li class="menu_item active">
+                        <a href="user_requests_and_announcements_visualize.html">Requests & Announcements</a>
                     </li>
     
                     <li class="menu_item">
@@ -35,23 +34,22 @@
             </div>    
         </div>
 
-        <div class="main_body">
-            <div class="supertitle">
-                <h2>Welcome to Project Web 2024</h2>
-            </div>
-
-            <div class="intro_paragraph">
-                <p>
-                    Kalos irthes sto project mou os xristis
-                </p>
-            </div>
-
+        
+        <div class="main-content">
+            <h2>Announcements</h2>
+            <div id="announcementsContainer" class="announcement-container"></div>
+        
+            <h2>Requests</h2>
+            <div id="requestsContainer" class="request-container"></div>
+        </div>
+        
         
 
         
     </body>
-    <script type="text/javascript" src="js/sub_to_info.js"></script>
-    <script type="text/javascript" src="js/footer_style.js"></script>
+    
     <script type="text/javascript" src="js/sweetalert2.min.js"></script>
     <script type="text/javascript" src="js/logout.js"></script>
+    <script type="text/javascript" src="js/user_fetch_announcements.js"></script>
+    <script type="text/javascript" src="js/fetch_user_requests.js"></script>
 </html>

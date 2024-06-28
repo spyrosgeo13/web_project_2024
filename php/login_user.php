@@ -15,7 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $query = "SELECT id, password, user_role FROM users WHERE username = '$username'";
     $result = $db->query($query);
 
-    if ($result) {
+    if ($result === false) {
+        echo 5; // Query error
+    } else {
         if ($result->num_rows === 1) {
             $row = $result->fetch_assoc();
 
@@ -26,19 +28,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 if ($row['user_role'] == 0) {
                     echo 0; // admin login
-                } else if ($row['user_role'] == 1){
+                } else if ($row['user_role'] == 1) {
                     echo 1; // user login
-                }else if ($row['user_role'] == 2){
-                    echo 2; // user login
+                } else if ($row['user_role'] == 2) {
+                    
+                    echo 2; // resquer login
+                }
             } else {
                 echo 3; // Wrong password
             }
         } else {
             echo 4; // Wrong username
         }
-    } else {
-        echo 4; // Query error
     }
-}}
-
+}
 ?>

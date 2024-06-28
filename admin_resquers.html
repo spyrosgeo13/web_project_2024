@@ -5,18 +5,20 @@
          
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/navigation_menu.css">
+        <link rel="stylesheet" href="css/footer_menu.css">
+        <link rel="stylesheet" href="css/main_style.css">
+        <link rel="stylesheet" href="css/Welcome_page.css">
         <link rel="stylesheet" href="css/Map.css">
-        <link rel="stylesheet" href="css/leaflet.css">
-        <link rel="stylesheet" href="css/leaflet-search.min.css">
-        <link rel="stylesheet" href="https://unpkg.com/leaflet-search@2.9.6/dist/leaflet-search.min.css" />
         <link rel="stylesheet" href="css/sweetalert2.min.css">
+        <link rel="stylesheet" href="css/resquer_creation_form.css">
+
     </head>
     <body>
         <div class="header">
             <div class="navigation_menu">
                 <ul class="menu">
 
-                    <li class="menu_item active">
+                    <li class="menu_item ">
                         <a href="admin_main_page.html">Map</a>
                     </li>
     
@@ -28,7 +30,7 @@
                         <a href="Statistics.html">Statistics</a>
                     </li>
 
-                    <li class="menu_item">
+                    <li class="menu_item active">
                         <a href="admin_resquers.html">Creation of resquers account</a>
                     </li>
 
@@ -42,21 +44,39 @@
                     </li>
                 </ul>
             </div>    
+
+
+
+            
         </div>
 
 
-        <div id="map">
-            
+      
+        <div class="resquer-creation-form">
+            <h2>Resquer Creation Form</h2>
+
+            <form id="createResquerForm" action="create_resquer_user.php" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br>
+
+                <input type="submit" value="Create Resquer User">
+            </form>
+        </div>
 
             
-        </div> 
+        
 
         
     </body>
     
-    <script type="text/javascript" src="js/admin_map.js"></script>
+    
     <script type="text/javascript" src="js/sweetalert2.min.js"></script>
     <script type="text/javascript" src="js/logout.js"></script>
+    <script type="text/javascript" src="js/initialize_map.js"></script>
     <script type="text/javascript" src="js/leaflet.js"></script>
     <script type="text/javascript" src="js/leaflet-search.min.js"></script>
+    <script type="text/javascript" src="js/resquer_creation.js"></script>
 </html>

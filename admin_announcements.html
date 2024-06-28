@@ -5,18 +5,22 @@
          
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/navigation_menu.css">
+        <link rel="stylesheet" href="css/footer_menu.css">
+        <link rel="stylesheet" href="css/main_style.css">
+        <link rel="stylesheet" href="css/Welcome_page.css">
         <link rel="stylesheet" href="css/Map.css">
         <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/leaflet-search.min.css">
         <link rel="stylesheet" href="https://unpkg.com/leaflet-search@2.9.6/dist/leaflet-search.min.css" />
         <link rel="stylesheet" href="css/sweetalert2.min.css">
+        <script src="js/awesomplete.js"></script>
     </head>
     <body>
         <div class="header">
             <div class="navigation_menu">
                 <ul class="menu">
 
-                    <li class="menu_item active">
+                    <li class="menu_item">
                         <a href="admin_main_page.html">Map</a>
                     </li>
     
@@ -32,7 +36,7 @@
                         <a href="admin_resquers.html">Creation of resquers account</a>
                     </li>
 
-                    <li class="menu_item">
+                    <li class="menu_item active">
                         <a href="admin_announcements.html">Announcements</a>
                     </li>
     
@@ -44,8 +48,28 @@
             </div>    
         </div>
 
-
-        <div id="map">
+        <div class="form-container">
+            <h2>Submit an Announcement</h2>
+            <form id="announcementForm" action="php/submit_announcement.php" method="post">
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="" disabled selected>Select a category</option>
+                    <!-- Options will be populated dynamically via JavaScript -->
+                </select>
+        
+                <label for="item">Item:</label>
+                <input type="text" id="item" name="item" placeholder="Start typing to search for an item" required>
+        
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" required>
+        
+                <button type="submit">Submit Announcement</button>
+            </form>
+        </div>
+        
+        
+        
+        
             
 
             
@@ -57,6 +81,8 @@
     <script type="text/javascript" src="js/admin_map.js"></script>
     <script type="text/javascript" src="js/sweetalert2.min.js"></script>
     <script type="text/javascript" src="js/logout.js"></script>
+    <script type="text/javascript" src="js/initialize_map.js"></script>
     <script type="text/javascript" src="js/leaflet.js"></script>
     <script type="text/javascript" src="js/leaflet-search.min.js"></script>
+    <script type="text/javascript" src="js/user_requests.js"></script>
 </html>

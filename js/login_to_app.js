@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function(){
                             timer: 2500
                           })
                           .then(function(){
-                            window.location.assign("Welcome_page_Admin.html");
+                            window.location.assign("admin_main_page.html");
                         });
                     } else if (xhttp.responseText == 1) {
                         Swal.fire({
@@ -57,7 +57,20 @@ document.addEventListener('DOMContentLoaded', function(){
                           .then(function(){
                             window.location.assign("user_main_page.html");
                         });
-                    } else if (xhttp.responseText == 2) {
+                    } 
+                    else if (xhttp.responseText == 2) {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Welcome to the App Dear Resquer",
+                            text: "You are logged in",
+                            showConfirmButton:false,
+                            timer: 2500
+                          })
+                          .then(function(){
+                            window.location.assign("resquer_main_page.html");
+                        });
+                    }
+                    else if (xhttp.responseText == 3) {
                         Swal.fire({
                             icon: 'Success',
                             title: 'Oops...',
@@ -66,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function(){
                         }).then(function(){
                             create_error(div_below_username, "The password you've entered is incorrect.", "not_found_msg");
                         });
-                    } else if (xhttp.responseText == 3) {
+                    } else if (xhttp.responseText == 4) {
                         Swal.fire({
                             icon: 'error',
                             title: 'Oops...',

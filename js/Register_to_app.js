@@ -58,15 +58,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Check pass
-        if(input_password.value === "" && div_below_password.children.length === 0) {
-            create_error(div_below_password, "Enter your password", "a_alert_content");
-        } else if (input_password_repeat.value === "" && div_below_password_repeat.children.length === 0) {
-            create_error(div_below_password_repeat, "Type your password again", "a_alert_content");
-        } else if (input_password.value !== input_password_repeat.value) {
-            create_error(div_below_password_repeat, "Passwords must match", "a_alert_content");
-        } else if (regex.test(input_password.value) === false) {
-            create_error(div_below_password, "Passwords must be at least 8 characters and contain 1 capital letter, 1 minor letter, 1 number and 1 special character", "a_alert_content");
-        } else {
+        console.log("Password:", input_password.value);
+    console.log("Regex Test:", regex.test(input_password.value));
+    if(input_password.value === "" && div_below_password.children.length === 0) {
+        create_error(div_below_password, "Enter your password", "a_alert_content");
+    } else if (input_password_repeat.value === "" && div_below_password_repeat.children.length === 0) {
+        create_error(div_below_password_repeat, "Type your password again", "a_alert_content");
+    } else if (input_password.value !== input_password_repeat.value) {
+        create_error(div_below_password_repeat, "Passwords must match", "a_alert_content");
+    }  else {
             let xhttp = new XMLHttpRequest();
             let url = "php/register_user.php";
             let method = "POST";

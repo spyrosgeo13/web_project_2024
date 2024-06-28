@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load Management</title>
+    <link rel="stylesheet" href="css/navigation_menu.css">
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
+    <link rel="stylesheet" href="css/load_management_page.css">
+    
+</head>
+<body>
+    <div class="header">
+        <div class="navigation_menu">
+            <ul class="menu">
+                <li class="menu_item"><a href="resquer_main_page.html">Map of Resquer</a></li>
+                <li class="menu_item active"><a href="resquer_load_management.html">Manage My Load</a></li>
+                
+                <li class="menu_item"><a href="resquer_tasks.html">My tasks</a></li>
+                <li class="menu_item"><a class="logout">Logout</a></li>
+            </ul>
+        </div>    
+    </div>
+
+    <div class="container">
+        <div class="load-details">
+            <h2>Loaded Items Details</h2>
+            <table id="loaded-items-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>Load Timestamp</th>
+                        <th>Unload Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be dynamically populated -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="form-container">
+            <h2>Load Management</h2>
+            <div>
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option value="">Select a category</option>
+                </select>
+            </div>
+            <div>
+                <label for="item">Item:</label>
+                <select id="item" disabled>
+                    <option value="">Select an item</option>
+                </select>
+            </div>
+            <div>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" min="1" value="1">
+            </div>
+            <button id="load-button">Load</button>
+            <button id="unload-button">Unload</button>
+        </div>
+    </div>
+
+    <script src="js/sweetalert2.min.js"></script>
+    <script src="js/logout.js"></script>
+    <script src="js/load_management.js"></script>
+</body>
+</html>
