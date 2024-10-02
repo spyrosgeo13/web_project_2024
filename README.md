@@ -1,0 +1,1 @@
+Developed a web-based application for coordinating volunteers during natural disasters. Implemented user-specific functionalities, such as request submissions and resource management, with role-based access for administrators, rescuers, and citizens. Created for the course Programming & Systems in the World Wide Web, Laboratory Exercise for the Academic Year 2023 - 2024.
